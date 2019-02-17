@@ -21,9 +21,9 @@ enum
 };
 
 int EmbedColors[Type_Count] = {
-	0xDA1D87, // Ban
-	0xF9D942, // Report
-	0x4362FA, // Comms
+	0xBF616A, // Ban
+	0xD08770, // Report
+	0xEBCD8B, // Comms
 };
 
 ConVar Convars[Type_Count];
@@ -149,14 +149,14 @@ void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban,
 
 
 	Handle jFieldAuthor = json_object();
-	json_object_set_new(jFieldAuthor, "name", json_string("Author"));
-	Format(sBuffer, sizeof sBuffer, "%s (%s)", sAuthor, sAuthorID);
+	json_object_set_new(jFieldAuthor, "name", json_string("Admin"));
+	Format(sBuffer, sizeof sBuffer, "%s", sAuthor);
 	json_object_set_new(jFieldAuthor, "value", json_string(sBuffer));
 	json_object_set_new(jFieldAuthor, "inline", json_boolean(true));
 
 	Handle jFieldTarget = json_object();
 	json_object_set_new(jFieldTarget, "name", json_string("Target"));
-	Format(sBuffer, sizeof sBuffer, "%s (%s)", sTarget, sTargetID);
+	Format(sBuffer, sizeof sBuffer, "%s", sTargetID);
 	json_object_set_new(jFieldTarget, "value", json_string(sBuffer));
 	json_object_set_new(jFieldTarget, "inline", json_boolean(true));
 
@@ -187,7 +187,7 @@ void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban,
 	{
 		Handle jFieldCommType = json_object();
 		
-		json_object_set_new(jFieldCommType, "name", json_string("Comm Type"));
+		json_object_set_new(jFieldCommType, "name", json_string("Communication Block Type"));
 		
 		char cType[32];
 		
@@ -207,8 +207,8 @@ void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban,
 
 	json_array_append_new(jEmbeds, jContent);
 
-	json_object_set_new(jRequest, "username", json_string("SourceBans++"));
-	json_object_set_new(jRequest, "avatar_url", json_string("https://sbpp.github.io/img/favicons/android-chrome-512x512.png"));
+	json_object_set_new(jRequest, "username", json_string("z4lab SourceBans"));
+	json_object_set_new(jRequest, "avatar_url", json_string("https://z4lab.com/images/z4lab-logo.png"));
 	json_object_set_new(jRequest, "embeds", jEmbeds);
 
 
