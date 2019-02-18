@@ -6,9 +6,9 @@ SourceBans Discord Forward
 ````
 Convars[Ban] = CreateConVar("sbpp_discord_banhook", "XXX", "Discord web hook endpoint for ban forward", FCVAR_PROTECTED);
 	
-	Convars[Report] = CreateConVar("sbpp_discord_reporthook", "XXX", "Discord web hook endpoint for report forward. If left empty, the ban endpoint will be used instead", FCVAR_PROTECTED);
+Convars[Report] = CreateConVar("sbpp_discord_reporthook", "XXX", "Discord web hook endpoint for report forward. If left empty, the ban endpoint will be used instead", FCVAR_PROTECTED);
 	
-	Convars[Comms] = CreateConVar("sbpp_discord_commshook", "XXX", "Discord web hook endpoint for comms forward. If left empty, the ban endpoint will be used instead", FCVAR_PROTECTED);
+Convars[Comms] = CreateConVar("sbpp_discord_commshook", "XXX", "Discord web hook endpoint for comms forward. If left empty, the ban endpoint will be used instead", FCVAR_PROTECTED);
 
 `````
 - get these 4 files if you don't have them already in your includes/ folder
