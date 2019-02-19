@@ -174,7 +174,10 @@ void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban,
 		json_object_set_new(jFieldDuration, "name", json_string("Duration"));
 
 		if (iTime > 0)
-			Format(sBuffer, sizeof sBuffer, "%d Minutes", iTime);
+			if (iTime == 1)
+				Format(sBuffer, sizeof sBuffer, "%d Minute", iTime);
+			else
+				Format(sBuffer, sizeof sBuffer, "%d Minutes", iTime);
 		else
 			Format(sBuffer, sizeof sBuffer, "Permanent");
 
