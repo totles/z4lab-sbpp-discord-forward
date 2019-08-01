@@ -93,7 +93,7 @@ public void SBPP_OnReportPlayer(int iReporter, int iTarget, const char[] sReason
 	SendReport(iReporter, iTarget, sReason, Report);
 }
 
-void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban, int iTime = -1, any extra = 0)
+void SendReport(int iClient, int iTarget, const char[] sReason = "N/A", int iType = Ban, int iTime = -1, any extra = 0)
 {
 	if (iTarget != -1 && !IsValidClient(iTarget))
 		return;
@@ -178,6 +178,8 @@ void SendReport(int iClient, int iTarget, const char[] sReason, int iType = Ban,
 				Format(sBuffer, sizeof sBuffer, "%d Minute", iTime);
 			else
 				Format(sBuffer, sizeof sBuffer, "%d Minutes", iTime);
+		else if (iTime < 0)
+			Format(sBuffer, sizeof sBuffer, "Session");
 		else
 			Format(sBuffer, sizeof sBuffer, "Permanent");
 
